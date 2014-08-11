@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "com.prositebuilder.auto"
+        versionCode = "1" 
+        version     = "0.0.1" >
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>Autopart Guru</name>
+
+    <description>
+        This is the demo version of the Autopart Guru app. 
+    </description>
+
+    <author href="http://www.rdwebdev.com" email="rdwebdevel@gmail.com">
+        Olan Suddeth 
+    </author>
+
+    <gap:platform name="ios" />
+
+    <preference name="phonegap-version" value="3.3.0" /> 
+    <preference name="orientation" value="portrait" />
+    <preference name="detect-data-types" value="false" /> 
+
+    <icon src="icon.png" />
+
+
+<gap:plugin name="com.phonegap.plugins.barcodescanner" version="1.1.0" />
+
+<gap:splash src="splash.png" />
+
+<gap:splash src="splash.png" width="320" height="480" />
+
+  <access origin="*"/>
+
+    </widget>

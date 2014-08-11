@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>AutoPart Guru Scanner Page</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<link rel="stylesheet" href="css/site_style.css" type="text/css" />
+<script src="js/jquery-latest.min.js"></script>
+<script src="js/query-migrate-1.0.0.js"></script>
+<link rel="stylesheet" href="css/jquery-ui.css" />
+<script src="js/jquery-ui.min.js"></script>
+<script src = "js/jquery.cookie.js"></script>
+<script src="phonegap.js"></script>
+<script type="text/javascript" src="barcodescanner.js"></script>
+<script type="text/javascript">
+
+ $(document).ready(function() {
+
+
+$('#scan').click(function () {
+            alert('scanning');
+
+            var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+
+            alert(scanner);
+
+            scanner.scan( function (result) { 
+                alert("We got a barcode\n" + 
+                "Result: " + result.text + "\n" + 
+                "Format: " + result.format + "\n" + 
+                "Cancelled: " + result.cancelled);  
+
+               alert("Scanner result: \n" +
+                    "text: " + result.text + "\n" +
+                    "format: " + result.format + "\n" +
+                    "cancelled: " + result.cancelled + "\n");
+                alert(result);
+            },function (error) { 
+                console.log("Scanning failed: ", error); 
+            });
+        });
+ 
+		 
+});
+
+
+</script> 
+</head>
+
+<body>
+	Barcode scanner test.
+
+	<input type = "button" name="scan" id="scan" value="Scan!">
+</body>
+</html>
