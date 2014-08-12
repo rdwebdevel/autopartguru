@@ -11,14 +11,14 @@ html, body {
 
 
 input[type=button] {
-	background-color:#005fae;
+	background-color:#ffffff;
 	-moz-border-radius:28px;
 	-webkit-border-radius:28px;
 	border-radius:28px;
 	border:1px solid #004d8d;
 	display:inline-block;
 	cursor:pointer;
-	color:#ffffff;
+	color:#005fae;
 	font-family:Trebuchet MS;
 	font-size:20px;
 	padding:8px;
@@ -30,8 +30,8 @@ input[type=button] {
 }
 
 input[type=button]:hover {
-	background-color:#ffffff;
-	color: #005fae;
+	background-color:#005fae;
+	color: #ffffff;
 }
 
 input[type=button]:active {
