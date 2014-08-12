@@ -17,25 +17,27 @@
 
 
 $('#scan').click(function () {
-            alert('scanning');
+          //  alert('scanning');
 
             var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
-            alert(scanner);
+           // alert(scanner);
 
             scanner.scan( function (result) { 
-                alert("We got a barcode\n" + 
-                "Result: " + result.text + "\n" + 
-                "Format: " + result.format + "\n" + 
-                "Cancelled: " + result.cancelled);  
+            //    alert("We got a barcode\n" + 
+             //   "Result: " + result.text + "\n" + 
+              //  "Format: " + result.format + "\n" + 
+               // "Cancelled: " + result.cancelled);  
 
-               alert("Scanner result: \n" +
-                    "text: " + result.text + "\n" +
-                    "format: " + result.format + "\n" +
-                    "cancelled: " + result.cancelled + "\n");
-                alert(result);
+             //  alert("Scanner result: \n" +
+                 //   "text: " + result.text + "\n" +
+                  //  "format: " + result.format + "\n" +
+                   // "cancelled: " + result.cancelled + "\n");
+		   //  alert(result);
+		$("#scontainer").html("Scanned barcode "+result)
             },function (error) { 
-                console.log("Scanning failed: ", error); 
+	    // console.log("Scanning failed: ", error); 
+	    alert("There was an issue with the scan, please try again.");
             });
         });
  
@@ -50,5 +52,6 @@ $('#scan').click(function () {
 	Barcode scanner test.
 
 	<input type = "button" name="scan" id="scan" value="Scan!">
+	<div id="scontainer"></div>
 </body>
 </html>
