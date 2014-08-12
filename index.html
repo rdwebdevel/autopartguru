@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title>AutoPart Guru Home Page</title>
+<title>AutoPart Guru Scanner Page</title>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <link rel="stylesheet" href="css/site_style.css" type="text/css" />
 <script src="js/jquery-latest.min.js"></script>
@@ -10,40 +10,48 @@
 <script src="js/jquery-ui.min.js"></script>
 <script src = "js/jquery.cookie.js"></script>
 <script src="phonegap.js"></script>
- <script type="text/javascript" charset="utf-8" src="js/barcodescanner.js"></script>
-        <script type="text/javascript">
-            function onBodyLoad()
-            {
-                document.addEventListener("deviceready", onDeviceReady, false);
-                scanButton = document.getElementById("scan-button");
-                resultSpan = document.getElementById("scan-result");
-            }
-        function onDeviceReady()
-        {
-            scanButton.addEventListener("click", clickScan, false);
-            createButton.addEventListener("click", clickCreate, false);
-        }
-        function clickScan() {
-            window.plugins.VINBarcodeScanner.scan(scannerSuccess, scannerFailure);
-            
-        }
-        
-        //------------------------------------------------------------------------------
-        function scannerSuccess(result) {
-            resultSpan.innerText = "success: " + JSON.stringify(result)
-        }
-        
-        //------------------------------------------------------------------------------
-        function scannerFailure(message) {
-            resultSpan.innerText = "failure: " + JSON.stringify(message)
-        }
-        </script>
-    </head>
-    <body onload="onBodyLoad()">
-        <p><br><br><br></p>
-        <button id="scan-button">scan something</button>
-        <p>scanned: <span id="scan-result">n/a</span>
-        
-    </body>
+<script type="text/javascript" src="barcodescanner.js"></script>
+<script type="text/javascript">
+
+ $(document).ready(function() {
+
+
+$('#scan').click(function () {
+          //  alert('scanning');
+
+            var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+
+           // alert(scanner);
+
+            scanner.scan( function (result) { 
+            //    alert("We got a barcode\n" + 
+             //   "Result: " + result.text + "\n" + 
+              //  "Format: " + result.format + "\n" + 
+               // "Cancelled: " + result.cancelled);  
+
+             //  alert("Scanner result: \n" +
+                 //   "text: " + result.text + "\n" +
+                  //  "format: " + result.format + "\n" +
+                   // "cancelled: " + result.cancelled + "\n");
+		   //  alert(result);
+		$("#scontainer").html("Scanned barcode "+result.text)
+            },function (error) { 
+	    // console.log("Scanning failed: ", error); 
+	    alert("There was an issue with the scan, please try again.");
+            });
+        });
+ 
+		 
+});
+
+
+</script> 
+</head>
+
+<body>
+	Barcode scanner test.
+
+	<input type = "button" name="scan" id="scan" value="Scan!">
+	<div id="scontainer"></div>
 </body>
 </html>
